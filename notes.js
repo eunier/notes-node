@@ -4,8 +4,3 @@ module.exports.addNote = function() {
     console.log('addNote');
     return 'New note';
 };
-
-module.exports.add = function(a, b) {
-    console.log('add');
-    return a + b;
-}
