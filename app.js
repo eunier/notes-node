@@ -4,7 +4,21 @@ const yargs = require('yargs');
 
 const notes = require('./notes');
 
-const argv = yargs.argv;
+const argv = yargs
+    .command('add', 'Add a new note', {
+        title: {
+            describe: 'Title of note',
+            demand: true,
+            alias: 't'
+        },
+        body: {
+            describe: 'Body of note',
+            demand: true,
+            alias: 'b'
+        }
+    })
+    .argv;
+
 var command = argv._[0];
 
 if (command === 'add') {
@@ -36,4 +50,3 @@ if (command === 'add') {
 } else {
     console.log('Command not recognized');
 }
-
