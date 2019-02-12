@@ -12,7 +12,18 @@ console.log('Command: ', command);
 console.log('Yargs', argv);
 
 if (command === 'add') {
-    notes.addNote(argv.title, argv.body);
+    var note = notes.addNote(argv.title, argv.body);
+
+    if (note) {
+        console.log('');
+        console.log(
+            'Note created\n--\n' +
+            `Title: ${note.title}\n` +
+            `Body: ${note.body}`
+        );
+    } else {
+        console.log('Note title taken');
+    }
 } else if (command === 'list') {
     notes.getAll();
 } else if (command === 'read') {
